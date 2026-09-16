@@ -41,10 +41,10 @@ The script:
 
 ### 2. Configure/reconfigure CMake
 
-Optionally run the RC3 source guards first:
+Optionally run the RC4 source guards first:
 
 ```powershell
-py .\tests\validate_rc3_source.py
+py .\tests\validate_rc4_source.py
 ```
 
 ```powershell

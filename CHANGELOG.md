@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.0 public RC4
+
+- Kept the raw `[D]` transport marker used by Core and native clients for
+  loop suppression, while removing it from the local visible chat line.
+- Rendered Discord display names in purple (`#B07CFF`) followed by normal
+  message text.
+- Rendered the Discord identity as message text rather than a Guild Wars
+  sender field, so it cannot become a misleading whisper link.
+- Repeated the formatted identity on locally split long messages.
+- Replaced the public-bundle timestamp comparison with embedded RC4 binary
+  guards, avoiding false stale-DLL failures on Windows builds.
+- Left the atomic relay hook, dynamic relay-identity registry, player relay
+  formatting and native nameplate behavior unchanged.
+
 ## 1.0.0 public RC3
 
 - Replaced compiled relay-character names with Core-verified identities from

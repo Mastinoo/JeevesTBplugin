@@ -5,6 +5,10 @@ Jeeves Chat is a GWToolbox++ plugin for linked Guild Wars alliance communities. 
 ## What it does
 
 - Restores the original player as the visible sender of Jeeves-relayed alliance chat, keeping the player name clickable.
+- Displays Discord relays as a purple (`#B07CFF`) Discord display name followed
+  by normal message text. The raw `[D]` marker remains in transport for loop
+  prevention but is hidden locally, and the synthetic Discord name is not a
+  whisper link.
 - Colors relayed chat guild tags by source faction:
   - **Kurzick:** `#5AA8FF`
   - **Luxon:** `#FF4040`
