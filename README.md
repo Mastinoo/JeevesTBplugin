@@ -15,7 +15,9 @@ Jeeves Chat is a GWToolbox++ plugin for linked Guild Wars alliance communities. 
 - Leaves your own linked faction on Guild Wars' normal nameplate colors.
 - Uses ArenaNet's native nameplate itself, so normal nameplate stacking, highlighting, hiding and UI occlusion continue to work.
 - Matches guilds by **guild identity / GHKey**, not by the visible guild tag string.
-- Refreshes the read-only linked-alliance registry automatically.
+- Learns verified Jeeves relay character names from the registry automatically;
+  relay names are not compiled into the plugin.
+- Refreshes the read-only community registry automatically.
 
 ## What it does not do
 
@@ -29,7 +31,7 @@ The public settings panel is intentionally small:
 - **Color linked alliance overhead tags** — enables the native opposite-faction overhead `[TAG]` coloring.
 - **What it does** — short visual explanation and faction color legend.
 - **Status** — registry/community/faction state.
-- **Advanced diagnostics** — compact counters for troubleshooting only.
+- **Advanced diagnostics** — compact counters for registry version fallback and troubleshooting only.
 
 ## Installation
 
@@ -42,7 +44,15 @@ GWToolbox++ plugins are binary plugins and may need to be rebuilt when the Toolb
 ## Network use
 
 Jeeves Chat periodically fetches the read-only community registry from
-`https://jeeves.metahub.gg/v1/community-registry.txt` to decide which guild
-identities belong to linked Kurzick/Luxon communities. The registry lookup is
-separate from Guild Wars gameplay automation. The plugin does not send Guild
-Wars credentials or player messages to this endpoint.
+`https://jeeves.metahub.gg/v2/community-registry.txt`. Version 2 supplies both
+linked guild identities and Core-verified Jeeves client character names. This
+lets a community rename or add relay clients without publishing a new plugin.
+
+If version 2 is temporarily unavailable, the plugin may use
+`https://jeeves.metahub.gg/v1/community-registry.txt` for GHKey/nameplate
+compatibility only. Chat rewriting then fails open: Guild Wars' original relay
+line remains visible instead of guessing a sender from a hardcoded name.
+
+The registry lookup is separate from Guild Wars gameplay automation. The
+plugin does not send Guild Wars credentials or player messages to this
+endpoint.

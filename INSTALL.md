@@ -41,6 +41,12 @@ The script:
 
 ### 2. Configure/reconfigure CMake
 
+Optionally run the RC3 source guards first:
+
+```powershell
+py .\tests\validate_rc3_source.py
+```
+
 ```powershell
 cd "C:\path\to\GWToolboxpp"
 cmake --preset=vcpkg
@@ -69,7 +75,9 @@ Copy-Item `
   -Force
 ```
 
-Start Guild Wars and test chat, overhead `[TAG]` coloring, normal native hiding/stacking, and UI occlusion.
+Start Guild Wars and test chat, overhead `[TAG]` coloring, normal native
+hiding/stacking, and UI occlusion. In **Advanced diagnostics**, confirm the
+registry reports `OK v2` and the expected number of verified relay identities.
 
 ## Creating the public end-user ZIP
 

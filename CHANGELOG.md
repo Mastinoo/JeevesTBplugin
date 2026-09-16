@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.0 public RC3
+
+- Replaced compiled relay-character names with Core-verified identities from
+  `https://jeeves.metahub.gg/v2/community-registry.txt`.
+- Derived each relayed message's source faction from its registered endpoint,
+  so additional communities and replacement clients require no plugin update.
+- Kept the v1 registry as a GHKey/nameplate compatibility fallback. Relay-chat
+  rewriting safely remains inactive whenever verified v2 identities are not
+  available.
+- Included online, stale and offline verified identities so a short client
+  disconnect does not immediately expose duplicate outer relay lines.
+- Added registry-version, relay-identity and v1-fallback diagnostics.
+- Added release validation that rejects binaries containing the former fixed
+  relay names or missing either versioned registry path.
+
 ## 1.0.0 public RC2
 
 - Replaced the temporary direct-IP registry connection with the stable public
